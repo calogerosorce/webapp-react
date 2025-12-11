@@ -28,3 +28,39 @@ a {
         object-fit: contain;
     }
 }
+
+
+.all {
+    background-color: lightgray;
+    display: flex;
+
+    .up {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    ul {
+        padding: 2rem;
+
+        h3 {
+            font-size: 22px;
+            margin-left: 150px;
+            margin-right: 150px;
+
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    li {
+        margin-left: 150px;
+        margin-right: 150px;
+        list-style: none;
+        font-size: 18px;
+    }
+
+}

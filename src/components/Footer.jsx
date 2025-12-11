@@ -51,14 +51,20 @@ export default function Footer() {
     ]
     return (
         <>
-            {list.map((items) => (
-                <ul key={items.id}>
-                    <h3><strong>{items.title}</strong></h3>
-                    {items.links.map((link) => (
-                        <NavLink to={link.to} key={link.id}><li>{link.text}</li></NavLink>
-                    ))}
-                </ul>
-            ))}
+            <div className="content">
+                <div className="all">
+                    <div className="up">
+                        {list.map((items) => (
+                            <ul key={items.id}>
+                                <h3><strong>{items.title}</strong></h3>
+                                {items.links.map((link) => (
+                                    <NavLink to={link.to} key={link.id}><li>{link.text}</li></NavLink>
+                                ))}
+                            </ul>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

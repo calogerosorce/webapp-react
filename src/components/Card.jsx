@@ -1,0 +1,16 @@
+import { Link } from "react-router-dom"
+
+
+export default function Card(props) {
+
+
+
+    return (
+        <Link to={`/prodotti/${props.id}`} className="card col-12 col-md-6 col-lg-4 align-items-center m-3">
+            <img src={props.image} alt="" />
+            {props && <p>{props.title}</p>}
+            <p>{props.genre}</p>
+            <p>{props.abstract}</p>
+        </Link>
+    )
+}

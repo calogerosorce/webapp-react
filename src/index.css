@@ -64,3 +64,17 @@ a {
     }
 
 }
+
+.single {
+    color: #909190;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.card_rating {
+    border: 1px solid #909190;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    margin: 2rem 0;
+}

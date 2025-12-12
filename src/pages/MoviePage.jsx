@@ -53,7 +53,30 @@ export default function MoviePage() {
                 ))
             }
 
+            <hr />
 
+            <div className="container my-3">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Recensione</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                        <option selected>Voto</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <button className="btn btn-dark">Submit</button>
+                </form>
+            </div >
         </>
     )
 }

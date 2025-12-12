@@ -75,6 +75,6 @@ a {
 .card_rating {
     border: 1px solid #909190;
     border-radius: 1rem;
-    padding-left: 1rem;
+    padding: 1rem;
     margin: 2rem 0;
 }

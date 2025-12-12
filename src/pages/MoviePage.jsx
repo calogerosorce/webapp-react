@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import Star from "../components/Star";
 
 export default function MoviePage() {
 
@@ -21,6 +21,8 @@ export default function MoviePage() {
         getApi()
     }, [])
 
+
+
     return (
 
         <>
@@ -37,7 +39,7 @@ export default function MoviePage() {
             <hr />
 
             <div className="container">
-                <h1>RECENZIONI</h1>
+                <h1>RECENSIONI</h1>
             </div>
             {
                 movie && movie.tag?.map(item => (
@@ -45,7 +47,7 @@ export default function MoviePage() {
                         <div className="card_rating">
                             <h3>{item.name}</h3>
                             <p>{item.text}</p>
-                            <p>{item.vote}</p>
+                            <Star vote={item.vote} />
                         </div>
                     </div>
                 ))

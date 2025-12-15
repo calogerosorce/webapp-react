@@ -45,7 +45,7 @@ export default function MoviePage() {
         <>
             <div className="container">
                 <div className="single my-4">
-                    <img src={`http://localhost:3000/movies_cover/${movie.image}`} alt="" />
+                    <img src={`http://localhost:3000/uploads/${movie.image}`} alt="" />
                     <div className="col m-4">
                         <h2>{movie.title}</h2>
                         <p>{movie.abstract}</p>

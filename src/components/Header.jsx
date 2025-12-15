@@ -16,6 +16,9 @@ export default function Header() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/contacts" aria-current="page">Contacts</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/admin" aria-current="page">Admin</NavLink>
+                            </li>
                         </ul>
                     </div>
                 </div>

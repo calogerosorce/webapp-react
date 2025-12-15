@@ -5,8 +5,24 @@ import Star from "../components/Star";
 
 export default function MoviePage() {
 
+    const initialForm = {
+        name: "",
+        vote: "",
+        recensione: ""
+    }
     let { id } = useParams()
     const [movie, setMovie] = useState({})
+    const [form, setForm] = useState(initialForm)
+
+    function handleSubmit(e) {
+        //e.preventDefault()
+        axios.post(`http://localhost:3000/movies/${id}/tags`, form)
+            .then(res => {
+                setForm(initialForm)
+            }).catch(err => {
+                console.log(err)
+            })
+    }
 
     function getApi() {
         axios.get(`http://localhost:3000/movies/${id}`)
@@ -16,6 +32,7 @@ export default function MoviePage() {
                 console.log(err)
             })
     }
+
 
     useEffect(() => {
         getApi()
@@ -56,25 +73,24 @@ export default function MoviePage() {
             <hr />
 
             <div className="container my-3">
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" />
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Name</label>
+                        <input type="text" className="form-control" id="name" placeholder="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Recensione</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                        <option selected>Voto</option>
+                    <label htmlFor="vote" className="form-label">Vote</label>
+                    <select className="form-select form-select-lg mb-3" aria-label="Large select example" id="vote" name="vote" value={form.vote} onChange={(e) => setForm({ ...form, vote: e.target.value })}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-
-                    <button className="btn btn-dark">Submit</button>
+                    <div className="mb-3">
+                        <label htmlFor="recensione" className="form-label">Recensione</label>
+                        <textarea className="form-control" id="recensione" name="recensione" rows="3" value={form.recensione} onChange={(e) => setForm({ ...form, recensione: e.target.value })}></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-dark">Submit</button>
                 </form>
             </div >
         </>

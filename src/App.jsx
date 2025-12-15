@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage"
 import DefaultLayout from "./Layout/DefaultLayout"
 import Contacts from "./pages/Contacts"
 import MoviePage from "./pages/MoviePage"
+import Admin from "./components/Admin"
 function App() {
 
 
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/movie/:id" element={<MoviePage />} />
+            <Route path="/admin" element={<Admin />} />
           </Route>
         </Routes>
       </BrowserRouter>

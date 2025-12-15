@@ -76,7 +76,7 @@ export default function MoviePage() {
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
-                        <input type="text" className="form-control" id="name" placeholder="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                        <input type="text" className="form-control" id="name" placeholder="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
                     </div>
                     <label htmlFor="vote" className="form-label">Vote</label>
                     <select className="form-select form-select-lg mb-3" aria-label="Large select example" id="vote" name="vote" value={form.vote} onChange={(e) => setForm({ ...form, vote: e.target.value })}>
@@ -88,7 +88,7 @@ export default function MoviePage() {
                     </select>
                     <div className="mb-3">
                         <label htmlFor="recensione" className="form-label">Recensione</label>
-                        <textarea className="form-control" id="recensione" name="recensione" rows="3" value={form.recensione} onChange={(e) => setForm({ ...form, recensione: e.target.value })}></textarea>
+                        <textarea className="form-control" id="recensione" name="recensione" rows="3" value={form.recensione} onChange={(e) => setForm({ ...form, recensione: e.target.value })} required></textarea>
                     </div>
                     <button type="submit" className="btn btn-dark">Submit</button>
                 </form>

@@ -20,7 +20,7 @@ export default function HomePage() {
             <div className="container">
                 <div className="row">
                     {movies.map(movie => (
-                        <Card key={movie.id} title={movie.title} image={`http://localhost:3000/movies_cover/${movie.image}`} genre={movie.genre} abstract={movie.abstract} id={movie.id} />
+                        <Card key={movie.id} title={movie.title} image={`http://localhost:3000/uploads/${movie.image}`} genre={movie.genre} abstract={movie.abstract} id={movie.id} />
                     ))}
                 </div>
             </div>

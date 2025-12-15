@@ -26,11 +26,12 @@ export default function Admin() {
         formPayload.append('release_year', formData.release_year);
         formPayload.append('genre', formData.genre);
 
-        axios.post('http://localhost:3000/movies', formPayload, {
+        axios.post("http://localhost:3000/movies", formPayload, {
             headers: {
-                'Content-Type': 'multipart/form-data'
+                "Content-Type": "multipart/form-data"
             }
         }).then(res => {
+            setFormData(initialFormData);
             navigate('/');
         }).catch(err => {
             console.log(err);

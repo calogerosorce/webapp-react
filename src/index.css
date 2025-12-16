@@ -111,3 +111,24 @@ main {
         color: #909190;
     }
 }
+
+hr {
+    color: lightgray;
+}
+
+.regular {
+
+    li {
+        border: solid 1px gray;
+        border-radius: 1rem;
+        list-style: none;
+
+        h3 {
+            color: gray;
+        }
+
+        p {
+            color: gray;
+        }
+    }
+}

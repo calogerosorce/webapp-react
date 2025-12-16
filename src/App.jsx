@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage"
 import DefaultLayout from "./Layout/DefaultLayout"
 import Contacts from "./pages/Contacts"
 import MoviePage from "./pages/MoviePage"
-import Admin from "./components/Admin"
+import Admin from "./pages/Admin"
 import { GlobalProvider } from "./context/GlobalContext"
 function App() {
 

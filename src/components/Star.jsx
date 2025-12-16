@@ -15,7 +15,7 @@ export default function Star({ vote }) {
     }
 
     return (
-        <div>
+        <div className="star">
             {getStar(vote)}
         </div>
     )

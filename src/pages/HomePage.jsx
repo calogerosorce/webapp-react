@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import Card from "../components/Card"
+import { useGlobalContext } from "../context/GlobalContext"
 export default function HomePage() {
 
     const [movies, setMovies] = useState([])
+    const { setLoading } = useGlobalContext();
     useEffect(() => {
+        setLoading(true);
         axios.get('http://localhost:3000/movies')
             .then(res => {
                 setMovies(res.data)
             }).catch(err => {
                 console.log(err)
+            }).finally(() => {
+                setLoading(false);
             })
     }, [])
 

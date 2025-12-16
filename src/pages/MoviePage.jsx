@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Star from "../components/Star";
+import { useGlobalContext } from "../context/GlobalContext";
 
 export default function MoviePage() {
 
@@ -13,23 +14,30 @@ export default function MoviePage() {
     let { id } = useParams()
     const [movie, setMovie] = useState({})
     const [form, setForm] = useState(initialForm)
+    const { setLoading } = useGlobalContext();
 
     function handleSubmit(e) {
         //e.preventDefault()
+        setLoading(true);
         axios.post(`http://localhost:3000/movies/${id}/tags`, form)
             .then(res => {
                 setForm(initialForm)
             }).catch(err => {
                 console.log(err)
+            }).finally(() => {
+                setLoading(false);
             })
     }
 
     function getApi() {
+        setLoading(true);
         axios.get(`http://localhost:3000/movies/${id}`)
             .then(res => {
                 setMovie(res.data)
             }).catch(err => {
                 console.log(err)
+            }).finally(() => {
+                setLoading(false);
             })
     }
 

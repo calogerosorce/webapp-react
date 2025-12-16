@@ -4,21 +4,24 @@ import DefaultLayout from "./Layout/DefaultLayout"
 import Contacts from "./pages/Contacts"
 import MoviePage from "./pages/MoviePage"
 import Admin from "./components/Admin"
+import { GlobalProvider } from "./context/GlobalContext"
 function App() {
 
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayout />} >
-            <Route path="/" element={<HomePage />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/movie/:id" element={<MoviePage />} />
-            <Route path="/admin" element={<Admin />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />} >
+              <Route path="/" element={<HomePage />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/movie/:id" element={<MoviePage />} />
+              <Route path="/admin" element={<Admin />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </>
   )
 }

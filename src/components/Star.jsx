@@ -2,7 +2,6 @@ export default function Star({ vote }) {
 
     function getStar(rating) {
 
-        console.log(rating);
 
         let stars = []
         for (let i = 1; i <= rating; i++) {

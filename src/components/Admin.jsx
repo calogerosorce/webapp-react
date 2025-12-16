@@ -39,35 +39,37 @@ export default function Admin() {
     }
 
     return (
-        <div className="container my-3">
-            <h1>Admin</h1>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
-                    <input type="text" className="form-control" id="title" name="title" placeholder="title" value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Image</label>
-                    <input className="form-control form-control-sm" id="image" name="image" type="file" onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Abstract</label>
-                    <textarea className="form-control" id="abstract" rows="3" name="abstract" value={formData.abstract} onChange={(e) => setFormData({ ...formData, abstract: e.target.value })}></textarea>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Director</label>
-                    <input type="text" className="form-control" id="director" placeholder="director" name="director" value={formData.director} onChange={(e) => setFormData({ ...formData, director: e.target.value })} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Release Year</label>
-                    <input type="text" className="form-control" id="release_year" placeholder="drelease_year" name="release_year" value={formData.release_year} onChange={(e) => setFormData({ ...formData, release_year: e.target.value })} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Genre</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="genre" value={formData.genre} onChange={(e) => setFormData({ ...formData, genre: e.target.value })} />
-                </div>
-                <button type="submit" className="btn btn-dark">Submit</button>
-            </form>
+        <div className="container py-3">
+            <div className="log">
+                <h1>Admin</h1>
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
+                        <input type="text" className="form-control" id="title" name="title" placeholder="Title" value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Image</label>
+                        <input className="form-control form-control-sm" id="image" name="image" type="file" onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Abstract</label>
+                        <textarea className="form-control" id="abstract" rows="3" name="Abstract" placeholder="Abstract" value={formData.abstract} onChange={(e) => setFormData({ ...formData, abstract: e.target.value })}></textarea>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Director</label>
+                        <input type="text" className="form-control" id="director" placeholder="Director" name="director" value={formData.director} onChange={(e) => setFormData({ ...formData, director: e.target.value })} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Release Year</label>
+                        <input type="text" className="form-control" id="release_year" placeholder="Release Year" name="release_year" value={formData.release_year} onChange={(e) => setFormData({ ...formData, release_year: e.target.value })} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Genre</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Genre" value={formData.genre} onChange={(e) => setFormData({ ...formData, genre: e.target.value })} />
+                    </div>
+                    <button type="submit" className="btn btn-dark">Submit</button>
+                </form>
+            </div>
         </div>
     )
 }

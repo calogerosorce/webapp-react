@@ -17,7 +17,7 @@ export default function MoviePage() {
     const { setLoading } = useGlobalContext();
 
     function handleSubmit(e) {
-        //e.preventDefault()
+        e.preventDefault()
         setLoading(true);
         axios.post(`http://localhost:3000/movies/${id}/tags`, form)
             .then(res => {
@@ -26,6 +26,7 @@ export default function MoviePage() {
                 console.log(err)
             }).finally(() => {
                 setLoading(false);
+                getApi();
             })
     }
 
@@ -52,7 +53,7 @@ export default function MoviePage() {
 
         <>
             <div className="container">
-                <div className="single my-4">
+                <div className="single py-4">
                     <img src={`http://localhost:3000/uploads/${movie.image}`} alt="" />
                     <div className="col m-4">
                         <h2>{movie.title}</h2>
@@ -80,27 +81,30 @@ export default function MoviePage() {
 
             <hr />
 
-            <div className="container my-3">
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="name" className="form-label">Name</label>
-                        <input type="text" className="form-control" id="name" placeholder="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
-                    </div>
-                    <label htmlFor="vote" className="form-label">Vote</label>
-                    <select className="form-select form-select-lg mb-3" aria-label="Large select example" id="vote" name="vote" value={form.vote} onChange={(e) => setForm({ ...form, vote: e.target.value })}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <div className="mb-3">
-                        <label htmlFor="recensione" className="form-label">Recensione</label>
-                        <textarea className="form-control" id="recensione" name="recensione" rows="3" value={form.recensione} onChange={(e) => setForm({ ...form, recensione: e.target.value })} required></textarea>
-                    </div>
-                    <button type="submit" className="btn btn-dark">Submit</button>
-                </form>
-            </div >
+            <div className="container py-3">
+                <div className="log">
+                    <h2>LASCIA UNA RECENSIONE</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label htmlFor="name" className="form-label">Name</label>
+                            <input type="text" className="form-control" id="name" placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+                        </div>
+                        <label htmlFor="vote" className="form-label">Vote</label>
+                        <select className="form-select form-select-lg mb-3" aria-label="Large select example" id="vote" name="vote" value={form.vote} onChange={(e) => setForm({ ...form, vote: e.target.value })}>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div className="mb-3">
+                            <label htmlFor="recensione" className="form-label">Recensione</label>
+                            <textarea className="form-control" id="recensione" name="recensione" rows="3" placeholder="Recensione" value={form.recensione} onChange={(e) => setForm({ ...form, recensione: e.target.value })} required></textarea>
+                        </div>
+                        <button type="submit" className="btn btn-dark">Submit</button>
+                    </form>
+                </div >
+            </div>
         </>
     )
 }
